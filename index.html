@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tô Đức Cường · Giữa Một Vạn Người Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+SC:wght@500;600;700&family=Great+Vibes&family=Grenze+Gotisch:wght@400;500;600;700;800&family=Pirata+One&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,400&family=Prata&family=UnifrakturMaguntia&display=swap&subset=vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="mv-stage.css">
+</head>
+<body>
+
+  <div class="scroll-progress-track" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
+
+  <canvas id="snowCanvas"></canvas>
+  <div class="blue-aurora-bg"></div>
+
+  <svg width="0" height="0" style="position:absolute; pointer-events:none;" aria-hidden="true">
+    <defs>
+      <filter id="removeOuterBlackFilter" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="
+          1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          2.6 2.6 2.6 0 -0.32
+        "/>
+      </filter>
+    </defs>
+  </svg>
+
+  <section class="overture-wrapper" id="overtureStage">
+    <div class="sticky-stage" id="stickyStage">
+
+      <div class="proscenium-valance">
+        <span class="valance-badge">✦ GIỮA MỘT VẠN NGƯỜI · LIVE PORTFOLIO EXPERIENCE ✦</span>
+      </div>
+
+      <div class="stage-spotlight-rays" aria-hidden="true"></div>
+
+      <div class="curtain-wing curtain-left" id="curtainLeft">
+        <div class="curtain-tassel"></div>
+      </div>
+      <div class="curtain-wing curtain-right" id="curtainRight">
+        <div class="curtain-tassel"></div>
+      </div>
+
+      <div class="top-rising-header" id="topRisingHeader">
+
+        <div class="crest-logo-wrapper" id="crestLogoTrigger" title="Cuộn xuống hoặc nhấn để mở rèm">
+          <img id="topCrestImage" src="logo.png" alt="Logo Giữa Một Vạn Người" style="display:none;">
+
+          <svg id="svgCrest3D" viewBox="0 0 540 410" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="crestVioletAura" cx="50%" cy="48%" r="48%">
+                <stop offset="0%" stop-color="#d8ecff"/>
+                <stop offset="45%" stop-color="#4895ef"/>
+                <stop offset="82%" stop-color="#10254c"/>
+                <stop offset="100%" stop-color="#040814" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="bronzeSculpt" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f5e1a4"/>
+                <stop offset="45%" stop-color="#b59449"/>
+                <stop offset="100%" stop-color="#4a3712"/>
+              </linearGradient>
+              <linearGradient id="blackSwanWing" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#3c3f36"/>
+                <stop offset="50%" stop-color="#1d201a"/>
+                <stop offset="100%" stop-color="#0b0d0a"/>
+              </linearGradient>
+            </defs>
+
+            <ellipse cx="270" cy="205" rx="245" ry="180" fill="url(#crestVioletAura)"/>
+            <path d="M270,22 C332,22 365,50 385,92 C402,145 458,200 515,248 C508,290 482,310 460,330 C412,336 378,370 345,382 C295,362 245,362 195,382 C162,370 128,336 80,330 C58,310 32,290 25,248 C82,200 138,145 155,92 C175,50 208,22 270,22 Z" fill="#9ea6a8" stroke="url(#bronzeSculpt)" stroke-width="10"/>
+            <path d="M270,66 C322,66 355,92 362,132 L345,278 L270,320 L195,278 L178,132 C185,92 218,66 270,66 Z" fill="#c7cccd" stroke="url(#bronzeSculpt)" stroke-width="7"/>
+            <g stroke="#5c6366" stroke-width="1.1" opacity="0.6">
+              <line x1="200" y1="100" x2="340" y2="240"/>
+              <line x1="230" y1="80" x2="355" y2="205"/>
+              <line x1="185" y1="135" x2="315" y2="265"/>
+              <line x1="340" y1="100" x2="200" y2="240"/>
+              <line x1="310" y1="80" x2="185" y2="205"/>
+              <line x1="355" y1="135" x2="225" y2="265"/>
+            </g>
+            <path d="M252,112 C252,88 280,88 280,112 C280,135 248,162 248,208 C248,252 282,276 306,276 C318,225 312,165 286,152 C266,145 258,175 258,198" fill="#ffffff" stroke="#b8c4c7" stroke-width="2.5"/>
+            <polygon points="252,108 232,120 253,118" fill="#d9a036"/>
+            <path d="M222,146 Q272,122 308,154 Q236,188 316,220 Q230,250 302,262" fill="none" stroke="#183324" stroke-width="7.5" stroke-linecap="round"/>
+            <path d="M202,162 C188,132 218,126 224,152 C228,175 208,205 225,252 L96,274 C122,235 158,192 202,162 Z" fill="url(#blackSwanWing)" stroke="#6e6346" stroke-width="2.5"/>
+            <polygon points="224,152 232,170 218,162" fill="#c9182b"/>
+            <path d="M338,162 C352,132 322,126 316,152 C312,175 332,205 315,252 L444,274 C418,235 382,192 338,162 Z" fill="url(#blackSwanWing)" stroke="#6e6346" stroke-width="2.5"/>
+            <polygon points="316,152 308,170 322,162" fill="#c9182b"/>
+            <path d="M162,302 Q270,270 378,302 L366,350 Q270,320 174,350 Z" fill="url(#bronzeSculpt)" stroke="#2e2008" stroke-width="3.5"/>
+            <text x="270" y="325" text-anchor="middle" font-family="'Playfair Display SC', 'Cormorant SC', serif" font-size="16.5" font-weight="700" fill="#120d02" letter-spacing="1">GIỮA MỘT VẠN NGƯỜI</text>
+          </svg>
+        </div>
+
+        <svg class="gothic-name-cutout" viewBox="0 0 920 175" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="pklChromeText" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="32%" stop-color="#d4ecff"/>
+              <stop offset="55%" stop-color="#6c96c2"/>
+              <stop offset="78%" stop-color="#f0f8ff"/>
+              <stop offset="100%" stop-color="#2c4c7e"/>
+            </linearGradient>
+            <linearGradient id="filigreeSilver" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="transparent"/>
+              <stop offset="25%" stop-color="#8ae2ff"/>
+              <stop offset="50%" stop-color="#ffffff"/>
+              <stop offset="75%" stop-color="#8ae2ff"/>
+              <stop offset="100%" stop-color="transparent"/>
+            </linearGradient>
+          </defs>
+
+          <path d="M90,26 Q280,2 460,26 Q640,2 830,26" fill="none" stroke="url(#filigreeSilver)" stroke-width="2"/>
+          <path d="M250,18 C310,-2 390,34 460,10 C530,34 610,-2 670,18" fill="none" stroke="url(#filigreeSilver)" stroke-width="1.5"/>
+          <polygon points="460,2 454,14 466,14" fill="#8ae2ff"/>
+
+          <text x="460" y="118" text-anchor="middle" font-family="'Pirata One', 'Grenze Gotisch', serif" font-size="92" fill="url(#pklChromeText)" stroke="#07132b" stroke-width="1.5" letter-spacing="4">
+            Tô Đức Cường
+          </text>
+
+          <path d="M140,148 Q460,174 780,148" fill="none" stroke="url(#filigreeSilver)" stroke-width="2"/>
+          <circle cx="460" cy="160" r="4.5" fill="#70c4ff"/>
+        </svg>
+
+        <button type="button" class="scroll-up-hint" id="scrollHintBtn">
+          <span>▼</span> Cuộn xuống để mở rèm <span>▼</span>
+        </button>
+
+      </div>
+
+      <div class="stage-inner-reveal" id="stageInnerReveal">
+        <div class="grief-mv-stage" id="griefMvStage">
+
+          <div class="interactive-stage-hud" id="stageHud">
+            <button type="button" class="hud-play-btn" id="hudPlayMvBtn">▶ Phát MV</button>
+            <span>🔍 Tương tác khung hình MV:</span>
+            <input type="range" id="mvZoomSlider" min="0" max="100" value="0" title="Kéo để thu nhỏ / phóng to hoạt ảnh giống MV">
+          </div>
+
+          <div class="mv-stage-aspect-box" id="mvStageAspectBox">
+            <svg id="griefMvSvg" class="grief-mv-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="mvWaterRippleFilter" x="-8%" y="-5%" width="116%" height="112%" color-interpolation-filters="sRGB">
+                  <feTurbulence id="mvRippleTurb" type="fractalNoise" baseFrequency="0.012 0.095" numOctaves="2" seed="7" result="rippleNoise"/>
+                  <feDisplacementMap in="SourceGraphic" in2="rippleNoise" scale="4.8" xChannelSelector="R" yChannelSelector="G"/>
+                </filter>
+
+                <filter id="mvDropcapShadow" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#050505" flood-opacity="0.92"/>
+                  <feDropShadow dx="2" dy="2" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.95"/>
+                </filter>
+
+                <clipPath id="mvWaterReflectionClip">
+                  <rect x="760" y="439" width="400" height="225"/>
+                </clipPath>
+              </defs>
+
+              <!-- 1. ZOOMING STAGE WORLD (8.04x -> 1.00x exact camera trajectory) -->
+              <g id="mvWorldCameraGroup" transform="translate(-6647.56, -1983.72) scale(8.04)">
+                <!-- Extended pale grey sky base (#B1ADAE) so zoomed-in bounds are 100% seamless -->
+                <rect x="-600" y="-600" width="3120" height="2280" fill="#B1ADAE"/>
+
+                <!-- Full extracted & cleaned stage landscape backdrop (sky, mountains, cliffs, lake, shore, gothic columns, hanging vines) -->
+                <image id="mvBackdropImg" href="stage_backdrop.png" x="0" y="0" width="1920" height="1080" preserveAspectRatio="none"/>
+
+                <!-- Subtle water ripple rings around ballerina's pointed toes at Y=439 -->
+                <g id="mvWaterRipples" class="mv-water-ripples-anim" opacity="0.9" fill="none" stroke-linecap="round">
+                  <ellipse cx="953" cy="439.5" rx="18" ry="1.8" stroke="#8a8687" stroke-width="0.7" opacity="0.55"/>
+                  <ellipse cx="953" cy="440.2" rx="32" ry="3.1" stroke="#6c6869" stroke-width="0.55" opacity="0.4"/>
+                </g>
+
+                <!-- Inverted Water Reflection (1:1 vertical flip anchored at toes Y=439) -->
+                <g id="mvWaterReflection" clip-path="url(#mvWaterReflectionClip)" opacity="0.9">
+                  <g transform="translate(0, 1049) scale(1, -1)">
+                    <image class="dancer-uploaded-img" href="vu_cong.png" x="889" y="439" width="127.7" height="171" preserveAspectRatio="none" filter="url(#mvWaterRippleFilter)" opacity="0.92"/>
+                  </g>
+                </g>
+
+                <!-- Main Ballerina standing on point at the lake's upper edge (X=889..1016.7, Y=268..439) -->
+                <g id="mvMainBallerina">
+                  <image class="dancer-uploaded-img" href="vu_cong.png" x="889" y="268" width="127.7" height="171" preserveAspectRatio="none"/>
+                </g>
+              </g>
+
+              <!-- 2. OPENING DARK CHARCOAL STAGE VEIL (dims stage during title card t=0..3.0s, fades out as zoom begins) -->
+              <rect id="mvInitialDarkTint" x="0" y="0" width="1920" height="1080" fill="#0d0c0d" opacity="0.66"/>
+
+              <!-- 3. STATIC OUTER THEATRICAL PROSCENIUM FRAME (Crescent Moon, Top Filigree, Left & Right Black Swans, 4-Lobed Scalloped Bottom Arch) -->
+              <image id="mvStageFrameImg" href="stage_frame.png" x="0" y="0" width="1920" height="1080" preserveAspectRatio="none"/>
+            </svg>
+
+            <!-- 4. REAL-TIME 24FPS 16MM VINTAGE FILM SCRATCHES & DUST CANVAS -->
+            <canvas id="mvFilmScratchCanvas" class="mv-film-scratch-canvas" width="1920" height="1080" aria-hidden="true"></canvas>
+            <div class="vintage-film-overlay" aria-hidden="true"></div>
+
+            <!-- 5. PHASE 1 OPENING TITLE CARD OVERLAY (Matches frame_0_3.png 1:1) -->
+            <div class="mv-title-card-layer" id="mvTitleCardLayer">
+              <div class="anti-title-lockup">
+                <!-- Exact Victorian Filigree Square Frame + Gleaming Calligraphic 'A' -->
+                <svg class="ornate-dropcap-svg" viewBox="0 0 210 280" xmlns="http://www.w3.org/2000/svg" filter="url(#mvDropcapShadow)">
+                  <!-- Silver-grey (#b6b4b5) Victorian scrollwork traced 1:1 from frame_0_3.png -->
+                  <g stroke="#b6b4b5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Top-left double-loop C-scroll & spiral -->
+                    <path d="M 32,82 C 26,95 40,96 42,78 C 44,58 32,48 36,34 C 40,20 56,22 68,38 C 80,54 96,56 100,38 C 102,24 90,18 84,28 C 80,36 88,44 94,36" stroke-width="6.2"/>
+                    <path d="M 36,58 C 44,44 60,44 60,58 C 60,68 44,70 38,60" stroke-width="5.2"/>
+                    <!-- Top-right symmetrical double-loop C-scroll & spiral -->
+                    <path d="M 114,36 C 120,44 128,36 124,28 C 118,18 106,24 108,38 C 112,56 128,54 140,38 C 152,22 168,20 172,34 C 176,48 166,68 156,66 C 148,64 148,44 158,38 C 164,34 168,44 162,52" stroke-width="6.2"/>
+                    <!-- Center inner figure-8 vine scrolls -->
+                    <path d="M 64,92 C 74,76 106,74 108,88 C 110,98 84,100 68,88" stroke-width="6.0"/>
+                    <path d="M 66,98 C 82,110 118,102 136,122 C 148,136 140,154 126,148 C 116,144 120,130 130,134" stroke-width="6.0"/>
+                    <path d="M 104,108 C 88,128 74,154 58,156 C 44,158 44,132 56,124 C 66,118 70,132 60,138" stroke-width="6.2"/>
+                    <path d="M 68,176 C 60,184 70,194 80,184 C 90,174 104,194 122,188 C 138,182 140,164 124,162 C 114,160 112,172 122,174" stroke-width="5.8"/>
+                    <!-- Right vertical double scroll loops -->
+                    <path d="M 156,82 C 164,72 172,76 170,96 C 168,114 154,128 158,136 C 162,142 174,130 172,114" stroke-width="5.2"/>
+                    <path d="M 156,178 C 164,168 172,174 170,194 C 168,214 154,232 158,242 C 162,248 174,236 172,218" stroke-width="5.2"/>
+                    <!-- Bottom-left ornate spiral corner -->
+                    <path d="M 44,190 C 32,188 28,204 42,212 C 62,222 74,248 90,246 C 102,244 104,228 92,226 C 84,224 84,236 92,236" stroke-width="6.2"/>
+                    <path d="M 34,238 C 38,252 60,250 64,236 C 66,224 44,220 40,234" stroke-width="5.5"/>
+                  </g>
+
+                  <!-- Gleaming White (#f5f3f4) Calligraphic Swash Capital 'A' superimposed on the filigree -->
+                  <g fill="none" stroke="#f5f3f4" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Sweeping curved left leg of 'A' with upper-left & lower-left swash curls -->
+                    <path d="M 68,212 C 44,196 34,162 42,124 C 50,86 82,58 116,58 C 134,58 144,68 148,82" stroke-width="9.5"/>
+                    <!-- Bold calligraphic right downstroke of 'A' with apex spur and bottom hook -->
+                    <path d="M 118,58 C 128,96 138,152 144,206 C 146,232 132,248 112,246 C 102,244 102,234 112,234" stroke-width="12.5"/>
+                    <!-- Ornate looped calligraphic crossbar of 'A' weaving across the center -->
+                    <path d="M 52,164 C 66,144 96,138 128,148 C 156,158 182,154 186,142 C 188,132 166,132 148,148" stroke-width="8.5"/>
+                    <!-- Inner calligraphic serif & highlight accents -->
+                    <path d="M 142,64 L 152,108" stroke-width="10.5"/>
+                  </g>
+                </svg>
+
+                <div class="anti-title-lines">
+                  <div class="anti-title-line-1"><span class="swash-cap">N</span>TI PHÙN<span class="swash-tail">G</span></div>
+                  <div class="anti-title-line-2"><span class="swash-cap">K</span>HÁNH <span class="swash-cap">L</span>INH</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. BOTTOM GOTHIC BLACKLETTER CAPTION & LYRICS BAR (Centered at Y=895 inside bottom black border) -->
+            <div class="mv-bottom-caption-bar" id="mvBottomCaptionBar">
+              <div class="mv-author-gothic" id="mvAuthorGothic">Tô Đức Cường</div>
+              <div class="mv-lyric-sequence" id="mvLyricSequence"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="lanyard-strip">
+    ✦ LẤY CẢM HỨNG TỪ ALBUM GIỮA MỘT VẠN NGƯỜI CỦA PHÙNG KHÁNH LINH ✦
+  </div>
+
+  <nav class="gothic-navbar">
+    <a href="index.html" class="brand-logo">Tô Đức Cường</a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="active">Trang Chủ</a></li>
+      <li><a href="bai-1.html">Bài 1 · Act I</a></li>
+      <li><a href="bai-2.html">Bài 2 · Act II</a></li>
+      <li><a href="bai-3.html">Bài 3 · Act III</a></li>
+      <li><a href="bai-4.html">Bài 4 · Act IV</a></li>
+      <li><a href="bai-5.html">Bài 5 · Encore</a></li>
+      <li><a href="bai-tap-thay-van.html">Bài tập thầy Văn</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-container">
+
+    <section class="gothic-concept-frame interactive-glow-card reveal-on-scroll">
+      <div class="profile-layout">
+
+        <div class="winged-baroque-mirror">
+          <svg width="0" height="0" style="position:absolute;">
+            <defs>
+              <clipPath id="avtScallopClip" clipPathUnits="objectBoundingBox">
+                <path d="M 0.50,0.005 C 0.62,0.005 0.72,0.04 0.80,0.11 C 0.91,0.19 0.99,0.31 0.995,0.44 C 0.995,0.58 0.92,0.71 0.82,0.80 L 0.93,0.84 L 0.87,0.995 C 0.75,0.96 0.62,0.95 0.50,0.99 C 0.38,0.95 0.25,0.96 0.13,0.995 L 0.07,0.84 L 0.18,0.80 C 0.08,0.71 0.005,0.58 0.005,0.44 C 0.01,0.31 0.09,0.19 0.20,0.11 C 0.28,0.04 0.38,0.005 0.50,0.005 Z"/>
+              </clipPath>
+            </defs>
+          </svg>
+
+          <img id="userPortraitImg" src="avt.png" class="avt-full-frame-img" alt="Chân dung Tô Đức Cường">
+
+          <svg id="avtFallbackSvg" class="avt-fallback-svg" viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="avtDarkTealBg" cx="50%" cy="42%" r="55%">
+                <stop offset="0%" stop-color="#19333a"/>
+                <stop offset="55%" stop-color="#0b1a1f"/>
+                <stop offset="100%" stop-color="#030709"/>
+              </radialGradient>
+            </defs>
+            <path d="M 200,8 C 235,8 255,24 275,38 C 305,46 325,72 340,98 C 368,118 382,148 380,180 C 396,208 396,242 380,270 C 382,302 368,332 340,352 C 322,380 295,402 265,418 L 200,435 L 135,418 C 105,402 78,380 60,352 C 32,332 18,302 20,270 C 4,242 4,208 20,180 C 18,148 32,118 60,98 C 75,72 95,46 125,38 C 145,24 165,8 200,8 Z" fill="#c7d0d2" stroke="#4f5b5e" stroke-width="4"/>
+            <ellipse cx="200" cy="224" rx="142" ry="182" fill="url(#avtDarkTealBg)" stroke="#5b676a" stroke-width="5"/>
+            <g transform="translate(200, 235)">
+              <circle cx="-32" cy="-98" r="24" fill="#d7d2d8" stroke="#49484d" stroke-width="2.5"/>
+              <circle cx="52" cy="-92" r="24" fill="#d7d2d8" stroke="#49484d" stroke-width="2.5"/>
+              <ellipse cx="-8" cy="48" rx="46" ry="62" transform="rotate(8)" fill="#dcd7dd" stroke="#49484d" stroke-width="2.5"/>
+              <ellipse cx="-58" cy="95" rx="34" ry="18" transform="rotate(-18 -58 95)" fill="#ccc7cd" stroke="#49484d" stroke-width="2.5"/>
+              <ellipse cx="36" cy="102" rx="32" ry="18" transform="rotate(22 36 102)" fill="#ccc7cd" stroke="#49484d" stroke-width="2.5"/>
+              <ellipse cx="-48" cy="25" rx="16" ry="42" transform="rotate(28 -48 25)" fill="#ccc7cd" stroke="#49484d" stroke-width="2.5"/>
+              <ellipse cx="38" cy="32" rx="17" ry="45" transform="rotate(-25 38 32)" fill="#dcd7dd" stroke="#49484d" stroke-width="2.5"/>
+              <ellipse cx="2" cy="-42" rx="36" ry="42" fill="#dcd7dd" stroke="#49484d" stroke-width="2.5"/>
+              <ellipse cx="-14" cy="-42" rx="4.5" ry="9" fill="#23272a"/>
+              <ellipse cx="6" cy="-42" rx="4.5" ry="9" fill="#23272a"/>
+              <ellipse cx="-6" cy="-26" rx="13" ry="8.5" fill="#1b2023"/>
+              <path d="M -14,-10 Q -4,-15 6,-8" fill="none" stroke="#49484d" stroke-width="2"/>
+              <path d="M 18,-2 L 24,14 M 15,3 L 25,1 M 17,9 L 27,7" stroke="#49484d" stroke-width="2"/>
+              <path d="M 2,-92 C -38,-92 -52,-55 -48,-32 C -54,-28 -62,-26 -66,-28 C -52,-16 -34,-18 -24,-28 C -14,-40 -4,-52 2,-62 C 10,-46 22,-32 42,-24 C 42,-18 40,-14 36,-10 C 50,-14 58,-22 60,-30 C 68,-26 76,-26 82,-30 C 70,-38 64,-52 62,-68 C 56,-88 32,-94 2,-92 Z" fill="#6d828a" stroke="#374449" stroke-width="2.5"/>
+            </g>
+            <path d="M 28,425 L 78,402 L 72,445 L 34,462 Z" fill="#889699" stroke="#495457" stroke-width="3"/>
+            <path d="M 372,425 L 322,402 L 328,445 L 366,462 Z" fill="#889699" stroke="#495457" stroke-width="3"/>
+            <path d="M 48,432 Q 200,355 352,432 L 336,515 Q 200,445 64,515 Z" fill="#ced6d6" stroke="#495457" stroke-width="3.5"/>
+            <text x="200" y="468" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="68" fill="#7c1d26" transform="rotate(-4 200 468)">Anti(T_T)</text>
+          </svg>
+        </div>
+
+        <div class="profile-details">
+          <span class="era-pill">✦ Hồ Sơ Cá Nhân ✦</span>
+          <h2>TÔ ĐỨC CƯỜNG</h2>
+
+          <div class="deboss-grid">
+            <div class="deboss-item interactive-glow-card">
+              <strong>Họ và Tên · MSSV</strong>
+              <span>Tô Đức Cường · 50.01.401.021</span>
+            </div>
+            <div class="deboss-item interactive-glow-card">
+              <strong>Trường Đào Tạo</strong>
+              <span>Đại học Sư phạm TP.HCM (HCMUE)</span>
+            </div>
+            <div class="deboss-item interactive-glow-card">
+              <strong>Chuyên Ngành</strong>
+              <span>Sư phạm Khoa học Tự nhiên</span>
+            </div>
+            <div class="deboss-item interactive-glow-card">
+              <strong>Cấu Trúc Web</strong>
+              <span>Trang chủ và 5 Trang bài tập</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="tour-video-section reveal-on-scroll" id="tourVideoSection">
+      <h2 class="section-heading">✦ VLOG ĐI XEM GIỮA MỘT VẠN TOUR ✦</h2>
+
+      <div class="theatre-video-frame interactive-glow-card" id="theatreVideoFrame">
+        <div class="video-stage-header">
+          <div class="video-stage-title-group">
+            <span class="video-stage-badge">✦ LIVE STAGE ARCHIVE · YOUTUBE PLAYER ✦</span>
+            <h3>Phá Đảo Giữa Một Vạn Tour · Phùng Khánh Linh</h3>
+          </div>
+
+          <div class="video-stage-controls">
+            <button type="button" class="video-ctrl-btn" id="playTourBtn">
+              <span>▶</span> Phát Ngay
+            </button>
+            <button type="button" class="video-ctrl-btn" id="cinemaLightBtn">
+              <span>💡</span> Tắt Đèn Sân Khấu
+            </button>
+          </div>
+        </div>
+
+        <div class="video-aspect-wrapper">
+          <iframe
+            id="pklTourYoutubeIframe"
+            src="https://www.youtube.com/embed/jITO5NX79pI?enablejsapi=1&rel=0&modestbranding=1&playsinline=1"
+            title="Phá đảo Giữa Một Vạn Tour của Phùng Khánh Linh"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="video-stage-caption">
+          <span>🎬 Nguồn: YouTube · Phá đảo Giữa Một Vạn Tour (ID: jITO5NX79pI)</span>
+          <span>✦ Nhấn trực tiếp vào trình phát hoặc nút "Phát Ngay" để xem trên trang</span>
+        </div>
+
+        <div class="video-external-bar">
+          <span class="video-external-label">✦ Trang web em làm về Phùng Khánh Linh:</span>
+          <a href="https://giua-mot-van-nguoi.vercel.app/?#overture" target="_blank" rel="noopener noreferrer" class="video-ctrl-btn">
+            <span>🔗</span> https://giua-mot-van-nguoi.vercel.app/?#overture
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="section-heading reveal-on-scroll">✦ Hệ thống 5 bài tập học phần ✦</h2>
+
+    <div class="acts-portal-grid">
+      <a href="bai-1.html" class="act-door-card interactive-glow-card reveal-on-scroll">
+        <div class="act-icon-wrap">
+          <img id="act1Img" src="act_1.png" alt="Act 1">
+          <svg id="act1Svg" viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 78,22 A 28,28 0 1,1 62,72 A 20,20 0 1,0 78,22 Z" fill="#c7c4e8" stroke="#7c78b8" stroke-width="3"/>
+            <path d="M 102,26 L 108,82 M 168,48 L 154,116 M 104,36 Q 135,34 166,54 M 106,56 Q 135,54 160,76" fill="none" stroke="#8884c2" stroke-width="4.5" stroke-linecap="round"/>
+            <circle cx="126" cy="54" r="8" fill="none" stroke="#8884c2" stroke-width="3.5"/>
+            <circle cx="144" cy="62" r="8" fill="none" stroke="#8884c2" stroke-width="3.5"/>
+            <polygon points="34,104 104,68 158,96 86,144" fill="#c5bfe0" stroke="#7c78b8" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M 34,90 L 32,124 M 86,128 L 86,158 M 34,108 Q 58,132 86,146 Q 124,132 156,102" fill="none" stroke="#8884c2" stroke-width="4" stroke-linecap="round"/>
+            <path d="M 56,108 L 72,88 L 82,102 L 104,100 L 108,76 L 114,96 L 126,84 L 112,110 L 76,108 Z" fill="#ffffff" stroke="#d0cce6" stroke-width="1.2"/>
+            <path d="M 66,80 C 56,84 56,104 72,108 C 88,112 96,94 118,102 C 110,88 94,88 84,94 C 86,80 76,72 66,80 Z" fill="#b81d2a" stroke="#6e0d16" stroke-width="1.5"/>
+            <circle cx="70" cy="84" r="5.5" fill="#f7d5cc"/>
+          </svg>
+        </div>
+        <span class="act-num">TRANG BÀI TẬP 1</span>
+        <h3>Bài Tập 1</h3>
+        <p>Đánh giá năng lực bản thân, đề xuất kế hoạch tự học tự điều chỉnh</p>
+      </a>
+
+      <a href="bai-2.html" class="act-door-card interactive-glow-card reveal-on-scroll">
+        <div class="act-icon-wrap">
+          <img id="act2Img" src="act_2.png" alt="Act 2">
+          <svg id="act2Svg" viewBox="0 0 200 190" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 30,42 C 12,54 10,100 34,128 C 50,148 70,136 86,112 C 78,82 76,58 62,44 C 52,36 38,36 30,42 Z" fill="#c4202f" stroke="#6e0d16" stroke-width="2.5"/>
+            <circle cx="70" cy="46" r="11" fill="#fdf3ee"/>
+            <path d="M 60,58 C 78,62 96,86 112,98 L 106,112 C 86,102 74,92 66,84 L 60,150 L 46,170 L 36,162 L 52,134 L 54,84 Z" fill="#ffffff" stroke="#c9c9de" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="130" cy="40" r="15" fill="#b3b4dc"/>
+            <path d="M 114,38 C 114,22 142,20 146,38 C 136,31 125,33 114,38 Z" fill="#1e2a4a"/>
+            <path d="M 108,60 C 128,54 160,42 186,30 L 190,40 C 166,58 152,72 150,98 L 152,170 L 130,170 L 124,120 L 114,170 L 94,170 L 106,98 C 102,82 104,68 108,60 Z" fill="#b3b4dc" stroke="#7d7fb4" stroke-width="3" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="act-num">TRANG BÀI TẬP 2</span>
+        <h3>Bài Tập 2</h3>
+        <p>Tìm kiếm tài liệu</p>
+      </a>
+
+      <a href="bai-3.html" class="act-door-card interactive-glow-card reveal-on-scroll">
+        <div class="act-icon-wrap">
+          <img id="act3Img" src="act_3.png" alt="Act 3">
+          <svg id="act3Svg" viewBox="0 0 200 190" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 100,18 C 70,14 46,50 44,92 C 42,128 30,150 18,170 C 52,172 78,160 90,138 L 96,60 Z" fill="#a3182a" stroke="#5e0a14" stroke-width="2.5"/>
+            <path d="M 100,18 C 126,22 140,58 128,104 L 112,110 L 100,60 Z" fill="#8c1424"/>
+            <ellipse cx="102" cy="40" rx="11" ry="14" fill="#ffffff"/>
+            <path d="M 94,56 C 82,70 70,86 62,100 C 72,108 80,102 90,92 C 92,108 92,130 88,146 L 74,184 L 94,184 L 108,146 L 122,184 L 144,184 L 132,140 C 130,118 128,96 124,76 C 134,74 146,70 160,66 C 156,60 150,56 144,58 L 118,62 C 112,56 104,54 94,56 Z" fill="#ffffff" stroke="#bdbdc9" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M 160,60 L 168,60 L 170,100 C 184,106 190,126 184,146 C 178,162 160,162 154,146 C 150,128 156,108 166,100 Z" fill="#232a38" stroke="#4a5568" stroke-width="2"/>
+          </svg>
+        </div>
+        <span class="act-num">TRANG BÀI TẬP 3</span>
+        <h3>Bài Tập 3</h3>
+        <p>Thiết kế học liệu dạng video</p>
+      </a>
+
+      <a href="bai-4.html" class="act-door-card interactive-glow-card reveal-on-scroll">
+        <div class="act-icon-wrap">
+          <img id="act4Img" src="act_4.png" alt="Act 4">
+          <svg id="act4Svg" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 106,34 C 80,22 40,34 20,68 C 10,88 14,112 28,128 C 24,104 40,84 66,76 C 84,70 100,62 106,34 Z" fill="#a3182a" stroke="#5e0a14" stroke-width="2.5"/>
+            <path d="M 98,46 C 98,70 94,90 92,112 C 60,124 24,146 12,170 L 108,172 L 110,112 C 108,90 106,64 108,48 Z" fill="#ffffff" stroke="#c9c9d6" stroke-width="2.5"/>
+            <path d="M 114,34 C 140,22 180,34 200,68 C 210,88 206,112 192,128 C 196,104 180,84 154,76 C 136,70 120,62 114,34 Z" fill="#1e2438" stroke="#0b0f1c" stroke-width="2.5"/>
+            <path d="M 122,46 C 122,70 126,90 128,112 C 160,124 196,146 208,170 L 112,172 L 110,112 C 112,90 114,64 112,48 Z" fill="#c9c9d3" stroke="#9a9aa8" stroke-width="2.5"/>
+            <rect x="105" y="52" width="10" height="40" rx="4" fill="#f7d5cc"/>
+            <path d="M 110,30 C 100,18 116,12 112,28" fill="none" stroke="#b81d2a" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="act-num">TRANG BÀI TẬP 4</span>
+        <h3>Bài Tập 4</h3>
+        <p>Sử dụng phần mềm, ứng dụng để thiết kế bài kiểm tra đánh giá</p>
+      </a>
+
+      <a href="bai-5.html" class="act-door-card interactive-glow-card reveal-on-scroll">
+        <div class="act-icon-wrap">
+          <img id="act5Img" src="act_5.png" alt="Act 5">
+          <svg id="act5Svg" viewBox="0 0 210 195" xmlns="http://www.w3.org/2000/svg">
+            <rect x="52" y="94" width="130" height="62" rx="8" fill="#8a1428" stroke="#ffffff" stroke-width="3"/>
+            <rect x="62" y="104" width="46" height="26" rx="4" fill="#3f0c18"/>
+            <rect x="114" y="104" width="50" height="26" rx="4" fill="#3f0c18"/>
+            <circle cx="84" cy="160" r="15" fill="#555555" stroke="#ffffff" stroke-width="3"/>
+            <circle cx="84" cy="160" r="6" fill="#9a9a9a"/>
+            <circle cx="152" cy="160" r="15" fill="#555555" stroke="#ffffff" stroke-width="3"/>
+            <circle cx="152" cy="160" r="6" fill="#9a9a9a"/>
+            <path d="M 82,94 L 86,86 L 150,86 L 154,94" fill="none" stroke="#3a1020" stroke-width="3"/>
+            <path d="M 112,16 C 98,18 90,36 94,54 C 96,64 90,72 86,82 C 100,80 108,70 112,56 Z" fill="#c8161e" stroke="#6e0d16" stroke-width="2"/>
+            <ellipse cx="118" cy="26" rx="8" ry="10" fill="#ffffff"/>
+            <path d="M 110,38 L 128,38 L 134,60 L 130,86 L 104,86 L 106,60 Z" fill="#ffffff" stroke="#c9c9d6" stroke-width="2"/>
+            <path d="M 100,62 L 166,38" stroke="#3a1020" stroke-width="4" stroke-linecap="round"/>
+            <ellipse cx="114" cy="58" rx="13" ry="9" transform="rotate(-24 114 58)" fill="#4a1226"/>
+            <path d="M 28,112 C 28,98 50,96 53,112 C 56,96 78,98 78,112 C 78,130 53,142 53,152 C 53,142 28,130 28,112 Z" fill="#c2186f" stroke="#f4a3c8" stroke-width="3"/>
+          </svg>
+        </div>
+        <span class="act-num">TRANG BÀI TẬP 5</span>
+        <h3>Bài Tập 5</h3>
+        <p>Đánh giá sau quá trình học, thực hiện câu hỏi sau khi học xong học phần</p>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-gothic-brand">Tô Đức Cường</p>
+    <p class="footer-tagline">✦ Sư Phạm Khoa Học Tự Nhiên ✦</p>
+
+    <p class="copyright-text">
+      © 2026 Tô Đức Cường (MSSV: 50.01.401.021 · ĐH Sư phạm TP.HCM). Thiết kế lấy cảm hứng từ vũ trụ âm nhạc Phùng Khánh Linh.
+    </p>
+  </footer>
+
+  <script src="mv-stage.js"></script>
+</body>
+</html>
